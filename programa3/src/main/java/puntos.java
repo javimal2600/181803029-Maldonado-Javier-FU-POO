@@ -21,9 +21,9 @@ public class puntos {
         y1=leer.nextInt();
         System.out.println("introduce el valor de x2:");
         x2=leer.nextInt();
-        System.out.println("Introudce el valor de y2:");
+        System.out.println("Introduce el valor de y2:");
         y2=leer.nextInt();
-        float resultado=(float) (Math.sqrt((((((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)))))));
+        float resultado=(float)(Math.sqrt((((((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)))))));
         System.out.println("La distancia de los dos puntos es: "+resultado);
     }
 }
