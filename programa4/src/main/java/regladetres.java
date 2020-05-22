@@ -18,7 +18,8 @@ public class regladetres {
          float a=leer.nextFloat();
          System.out.println("Valor total:");
          float b=leer.nextFloat();
-         float resultado=(float)((a*100)/b);
-         System.out.println("El porcentaje es: "+resultado);
+         float resultado=(float)((a/b)*100);
+         System.out.println("El porcentaje es: "+resultado+"%");
+         
      }
 }
