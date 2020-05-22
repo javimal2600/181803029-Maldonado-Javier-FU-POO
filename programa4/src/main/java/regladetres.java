@@ -13,13 +13,14 @@ import java.util.Scanner;
 public class regladetres {
      public static void main(String[] args){
          Scanner leer=new Scanner(System.in);
-         System.out.println("REGLA DE TRES");
-         System.out.println("Valor obtenido:");
+         System.out.println("REGLA DE TRES SIMPLE");
+         System.out.println("Valor de referencia:");
          float a=leer.nextFloat();
-         System.out.println("Valor total:");
+         System.out.println("Valor de magnitud:");
          float b=leer.nextFloat();
-         float resultado=(float)((a/b)*100);
-         System.out.println("El porcentaje es: "+resultado+"%");
-         
+         System.out.println("Valor que desea saber en base a los dos datos anteriores:");
+         float c=leer.nextFloat();
+         float x=((b*c)/a);
+         System.out.println("El resultado es: " + x);
      }
 }
