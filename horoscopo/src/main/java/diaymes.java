@@ -18,7 +18,6 @@ public class diaymes {
         int dia=leer.nextInt();
         System.out.println("Introduce tu mes de nacimiento:");
         int mes=leer.nextInt();
-        
         switch(mes){
             case 1:
                 //enero
