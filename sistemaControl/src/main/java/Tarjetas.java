@@ -56,7 +56,7 @@ public class Tarjetas {
     }
 
     public double total() {
-        return this.montoDisponible + this.montoApartado;
+        return this.montoDisponible += this.montoApartado;
     }
 
     //metodo para un deposito
@@ -66,19 +66,34 @@ public class Tarjetas {
     }
     
     //metodo para hacer un retiro
-    public double retiro(double retiro) {
+    public double verificarRetiro(double retiro) {
         if (retiro <= montoDisponible) {
-            montoDisponible -= retiro;
+            retiro(retiro);
             System.out.println("¡Retiro realizado con exito! \n");
         } else {
-            System.out.println("Saldo insuficiente");
+            System.out.println("Saldo insuficiente \n");
         }
         return montoDisponible;
     }
 
+    //meotodo para hacer deposito
+    public double retiro(double retiro){
+        return montoDisponible -= retiro;
+    }
     //metodo para eliminar el apartado
     public void apartado() {
-        montoApartado = 0;
+        montoDisponible+=montoApartado;
+        montoApartado = 0;   
+    }
+    
+    //crear apartado
+    public double crearApartado(double apartado){
+        if(montoApartado<=montoDisponible){
+            montoApartado=montoApartado+apartado;
+        }else{
+            System.out.println("No cuenta con saldo suficiente");
+        }
+        return montoDisponible=montoDisponible-montoApartado;
     }
 
     //metodo para mostrar los datos de la cuenta
@@ -86,5 +101,4 @@ public class Tarjetas {
     public String toString() {
         return "\n No.Cuenta:" + noCuenta + " \n NIP:" + nip + "\n CV:" + cv + "\n Nombre: " + nombre + "\n Fecha Vencimiento: " + dia + "/" + mes + "/" + anio + "\n montoDisponible:" + montoDisponible + "\n montoApartado: " + montoApartado + "\n Total:" + this.total();
     }
-
 }

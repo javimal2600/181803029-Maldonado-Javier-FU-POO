@@ -33,7 +33,11 @@ public class tarjetasMain {
         do {
             System.out.println("1) Hacer un deposito");
             System.out.println("2) Hacer un retiro");
-            System.out.println("3) Eliminar apartado");
+            if(tarjeta.montoApartado>0){
+                System.out.println("3) Eliminar apartado");
+            }else{
+                System.out.println("3) Crear apartado");
+            }
             System.out.println("4) Imprimir datos de la cuenta");
             System.out.println("5) Salir");
             System.out.println("Escoge una opcion:");
@@ -47,14 +51,21 @@ public class tarjetasMain {
                     System.out.println("¡Deposito realizado con exito! \n");
                     break;
                 case 2:
-                    System.out.println("Introduzca la cantida a retirar:");
+                    System.out.println("Introduzca la cantidad a retirar:");
                     double retiro = leer.nextDouble();
-                    tarjeta.retiro(retiro);
+                    tarjeta.verificarRetiro(retiro);
                     break;
                 case 3:
-                    System.out.println("Eliminando Apartado... \n");
-                    tarjeta.apartado();
-                    System.out.println("!Apartado eliminado con exito¡ \n");
+                    if(tarjeta.montoApartado>0){
+                        System.out.println("Eliminando Apartado... \n");
+                        tarjeta.apartado();
+                        System.out.println("!Apartado eliminado con exito¡ \n");
+                    }else if(tarjeta.montoApartado==0){
+                        System.out.println("Introduzca la cantidad de apartado: \n");
+                        double apartado = leer.nextDouble();
+                        tarjeta.crearApartado(apartado);
+                        System.out.println("¡Apartado creado con exito! \n");
+                    }
                     break;
                 case 4:
                     System.out.println(tarjeta.toString());
@@ -65,4 +76,3 @@ public class tarjetasMain {
         System.out.println("¡Gracias vuelva pronto!");
     }
 }
-
