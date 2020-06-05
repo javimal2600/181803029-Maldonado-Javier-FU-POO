@@ -56,15 +56,14 @@ public class tarjetasMain {
                     tarjeta.verificarRetiro(retiro);
                     break;
                 case 3:
-                    if(tarjeta.montoApartado>0){
+                    if(tarjeta.montoApartado!=0){
                         System.out.println("Eliminando Apartado... \n");
                         tarjeta.apartado();
                         System.out.println("!Apartado eliminado con exito¡ \n");
-                    }else if(tarjeta.montoApartado==0){
+                    }else{
                         System.out.println("Introduzca la cantidad de apartado: \n");
                         double apartado = leer.nextDouble();
-                        tarjeta.crearApartado(apartado);
-                        System.out.println("¡Apartado creado con exito! \n");
+                        tarjeta.verificarApartado(apartado);
                     }
                     break;
                 case 4:

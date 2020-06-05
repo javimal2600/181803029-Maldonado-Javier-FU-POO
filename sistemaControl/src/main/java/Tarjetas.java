@@ -54,51 +54,57 @@ public class Tarjetas {
             return new Tarjetas();
         }
     }
-
-    public double total() {
-        return this.montoDisponible += this.montoApartado;
-    }
-
+   
     //metodo para un deposito
-    public double deposito(double deposito) {
-        montoDisponible += deposito;
-        return montoDisponible;
-    }
+    public void deposito(double deposito) {
+        this.montoDisponible = this.montoDisponible+deposito;
+    }   
     
-    //metodo para hacer un retiro
-    public double verificarRetiro(double retiro) {
-        if (retiro <= montoDisponible) {
+    //metodo para verificar antes de hacer un retiro
+    public void verificarRetiro(double retiro) {
+        if (retiro <= this.montoDisponible) {
             retiro(retiro);
             System.out.println("¡Retiro realizado con exito! \n");
         } else {
             System.out.println("Saldo insuficiente \n");
         }
-        return montoDisponible;
     }
 
-    //meotodo para hacer deposito
-    public double retiro(double retiro){
-        return montoDisponible -= retiro;
-    }
-    //metodo para eliminar el apartado
-    public void apartado() {
-        montoDisponible+=montoApartado;
-        montoApartado = 0;   
+    //metodo para hacer el retiro
+    public void retiro(double retiro){
+        this.montoDisponible = this.montoDisponible - retiro;
     }
     
-    //crear apartado
-    public double crearApartado(double apartado){
-        if(montoApartado<=montoDisponible){
-            montoApartado=montoApartado+apartado;
+    //metodo para eliminar el apartado
+    public void apartado() {
+        this.montoDisponible=this.montoDisponible + this.montoApartado;
+        this.montoApartado = 0;   
+    }
+    
+    //verificar el apartado
+    public void verificarApartado(double apartado){
+        if(apartado <= this.montoDisponible){
+            crearApartado(apartado);
+            System.out.println("!Apartado Creado con exito¡");
         }else{
             System.out.println("No cuenta con saldo suficiente");
         }
-        return montoDisponible=montoDisponible-montoApartado;
+    }
+    
+    //metodo para crear un apartado
+    public void crearApartado(double apartado){
+        this.montoApartado=this.montoApartado+apartado;
+        this.montoDisponible=this.montoDisponible-this.montoApartado;
+    }
+    
+     //metodo para hacer el total
+    public double total() {
+        return this.montoDisponible + this.montoApartado;
     }
 
     //metodo para mostrar los datos de la cuenta
     @Override
     public String toString() {
-        return "\n No.Cuenta:" + noCuenta + " \n NIP:" + nip + "\n CV:" + cv + "\n Nombre: " + nombre + "\n Fecha Vencimiento: " + dia + "/" + mes + "/" + anio + "\n montoDisponible:" + montoDisponible + "\n montoApartado: " + montoApartado + "\n Total:" + this.total();
+        return "\n No.Cuenta:" + noCuenta + " \n NIP:" + nip + "\n CV:" + cv + "\n Nombre: " + nombre + "\n Fecha Vencimiento: " + dia + "/" + mes + "/" + anio + "\n montoDisponible:" + this.montoDisponible + "\n montoApartado: " + montoApartado + "\n Total:" + this.total();
     }
 }
