@@ -8,57 +8,39 @@
  *
  * @author Javier García
  */
-
+import java.util.*;
+import java.util.Scanner;
 public class JuegoMain {
      public static void main(String[] args){
-         Ak bronce = new Ak();
-         bronce.tipo = "Bronce";
-         bronce.cargador=5;
-         bronce.precision=75;
-         bronce.velocidadCarga=5;
-         bronce.precio=1000;
-         bronce.danio=10;
-         bronce.velocidadDisparo=10;
-         System.out.println(bronce.toString());
+        Scanner leer = new Scanner(System.in);
+       
+        //aqui se crean nuestros personajes
+        Personaje p1 = new Personaje("Javier");
+        Personaje p2 = new Personaje("Carlos");
+        
+        //menu de armas
+        System.out.println("Menu de armas:\n");
+        System.out.println("1) Bronce");
+        System.out.println("2) Plata");
+        System.out.println("3) Oro");
+        System.out.println("4) Diamante");
+        System.out.println("5) Adamantium");
+        System.out.println("\n");
          
-         Ak plata=new Ak();
-         plata.tipo="Plata";
-         plata.cargador=8;
-         plata.precision=70;
-         plata.velocidadCarga=4.5;
-         plata.precio=2300;
-         plata.danio=11;
-         plata.velocidadDisparo=9.8;
-         System.out.println(plata.toString());
-         
-         Ak oro=new Ak();
-         oro.tipo="Oro";
-         oro.cargador=10;
-         oro.precision=85;
-         oro.velocidadCarga=4.3;
-         oro.precio=2500;
-         oro.danio=13;
-         oro.velocidadDisparo=9.7;
-         System.out.println(oro.toString());
-         
-         Ak diamante=new Ak();
-         diamante.tipo="Diamante";
-         diamante.cargador=20;
-         diamante.precision=95;
-         diamante.velocidadCarga=3;
-         diamante.precio=4000;
-         diamante.danio=20;
-         diamante.velocidadDisparo=9.4;
-         System.out.println(diamante.toString());
-         
-         Ak adamantium=new Ak();
-         adamantium.tipo="Adamantium";
-         adamantium.cargador=30;
-         adamantium.precision=100;
-         adamantium.velocidadCarga=1;
-         adamantium.precio=10000;
-         adamantium.danio=27;
-         adamantium.velocidadDisparo=8;
-         System.out.println(adamantium.toString());
+        //seleccion de armas para ambos jugadores
+        System.out.println("Player 1 seleccione un arma:");
+        p1.equiparArma(leer.nextInt());
+        System.out.println("\n");
+        System.out.println("Player 2 seleccione un arma:");
+        p2.equiparArma(leer.nextInt());
+        System.out.println(p1);
+        
+        //mostrar los datos de los personajes:
+         System.out.println(p1.toString()+"\n");
+         System.out.println(p2.toString());
+        
+        //mostrar el daño que hace cada arma
+         System.out.println(p1.mostrarDanio());
+         System.out.println(p2.mostrarDanio());
      }
 }
